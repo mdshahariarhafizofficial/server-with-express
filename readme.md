@@ -24,3 +24,7 @@
         // Recommended Options
         "jsx": "react-jsx",
         "verbatimModuleSyntax": true,
+
+9. create poll for PostgreSQL :-
+    --- npm i pg
+    --- npm i --save-dev @types/pg
