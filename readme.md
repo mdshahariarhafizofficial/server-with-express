@@ -1,4 +1,4 @@
-<!-- Command List -->
+------- Command List -------
 1. npm init -y
 2. npm install express --save
 3. npm i -D typescript
@@ -9,16 +9,18 @@
     "dev": "npx tsx watch ./src/server.ts"
 
 8. tsConfig.json file changes:-
-    <!-- Uncomment -->
-    "rootDir": "./src",
-    "outDir": "./dist",
 
-    <!-- Comment -->
-    // Other Outputs
+    ------- Uncomment: -------
+        "rootDir": "./src",
+        "outDir": "./dist",
+
+    ------- Comment: -------
+
+        // Other Outputs:
         "sourceMap": true,
         "declaration": true,
         "declarationMap": true,
 
-    // Recommended Options
+        // Recommended Options
         "jsx": "react-jsx",
         "verbatimModuleSyntax": true,
