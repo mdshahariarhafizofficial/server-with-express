@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import config from "./config";
 import initDB, { pool } from "./config/db";
 import { userRoutes } from "./modules/user/user.routes";
+import { authRouter } from "./modules/auth/auth.routes";
 
 
 const app = express()
@@ -19,6 +20,8 @@ app.get('/', (req: Request, res: Response) => {
   res.send('Hello Next Dev')
 })
 
+// Login API
+app.use("/auth", authRouter);
 
 // Users API
 app.use("/users", userRoutes);

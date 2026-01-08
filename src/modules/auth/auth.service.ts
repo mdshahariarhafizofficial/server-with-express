@@ -1,5 +1,6 @@
 import { pool } from "../../config/db";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 const loginUser = async (email: string, password: string) => {
     const result = await pool.query(`
@@ -13,4 +14,21 @@ const loginUser = async (email: string, password: string) => {
         const user = result.rows[0];
 
         const match = bcrypt.compare(password, user.password);
+
+        if (!match) {
+            return false;
+        }
+
+        const secret = "KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30";
+
+        const token = jwt.sign({ name: user.name, email: user.email }, secret, { expiresIn: "7d", });
+
+        console.log(token);
+
+        return { token, user };
+        
+};
+
+export const authServices = {
+    loginUser,
 };
